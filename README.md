@@ -7,8 +7,11 @@ Este proyecto implementa un pipeline de datos end-to-end para el procesamiento d
 El pipeline permite:
 
 -Ingestar datos crudos en formato CSV
+
 -Limpiar y validar la información
+
 -Detectar transacciones sospechosas (fraude)
+
 -Almacenar los datos en un Data Warehouse para análisis
 
 ## Arquitectura
@@ -67,8 +70,11 @@ python main.py
 Esto:
 
 -Genera transacciones cada minuto
+
 -Limpia y valida datos
+
 -Detecta transacciones sospechosas
+
 -Guarda resultados en processed/ y suspicious/
 
 ## Cargar datos al Data Warehouse
@@ -82,9 +88,13 @@ NOTA: Tener presente la configuración de la base de datos en el archivo db/conn
 La función clean_data() realiza:
 
 -Eliminación de duplicados
+
 -Manejo de valores nulos
+
 -Validación de tipos de datos
+
 -Eliminación de outliers (montos > 10,000)
+
 -Estandarización de campos categóricos (country, currency, status)
 
 ## Estrategia de Detección de Fraude
@@ -92,15 +102,21 @@ La función clean_data() realiza:
 La función detect_suspicious_transactions() implementa reglas heurísticas:
 
 -Montos altos (> 1000)
+
 -Múltiples intentos fallidos por usuario
+
 -Transacciones con estado declined
+
 -Transacciones internacionales
+
 -Alta frecuencia de transacciones por usuario
+
 -Países de alto riesgo (ej: NG, RU)
 
 Salida:
 
 Transacciones normales
+
 Transacciones sospechosas
 
 ## Modelo de Datos
@@ -115,15 +131,22 @@ dim_merchants
 
 ## Limitaciones
 -Detección de fraude basada en reglas (no machine learning)
+
 -No se implementó orquestación (Airflow)
+
 -No se implementó streaming en tiempo real (Kafka)
+
 -Modelo dimensional parcial (faltan dim_time, dim_payment_methods)
 
 ##  Mejoras Futuras
 -Implementar Apache Kafka para procesamiento en tiempo real
+
 -Orquestar el pipeline con Apache Airflow
+
 -Extender el modelo dimensional (dim_time, dim_payment_methods)
+
 -Integrar API para conversión de monedas
+
 -Agregar tests y validaciones automáticas
 
 ## Tiempo Invertido
@@ -131,7 +154,9 @@ dim_merchants
 Aproximadamente 8 horas, enfocadas en:
 
 -Diseño del pipeline
+
 -Calidad de datos
+
 -Modelado y carga al Data Warehouse
 
 ## Notas Finales
