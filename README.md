@@ -14,10 +14,15 @@ El pipeline permite:
 ## Arquitectura
 
 -Data Lake: Carpeta local ./transactions donde se almacenan archivos CSV crudos
+
 -ETL: Script en Python que procesa los datos cada minuto
+
 -Processed: Carpeta ./processed con datos limpios
+
 -Suspicious: Carpeta ./suspicious con transacciones sospechosas
+
 -Data Warehouse: PostgreSQL con modelo dimensional
+
 -Imagen en la raiz del proyecto:arquitectura.png
 
 ## Instalación
