@@ -18,43 +18,7 @@ El pipeline permite:
 -Processed: Carpeta ./processed con datos limpios
 -Suspicious: Carpeta ./suspicious con transacciones sospechosas
 -Data Warehouse: PostgreSQL con modelo dimensional
-
-          ┌────────────────────────────┐
-          │    Transaction Generator   │
-          │        (main.py)           │
-          └─────────────┬──────────────┘
-                        │
-                        ▼
-          ┌────────────────────────────┐
-          │        Data Lake           │
-          │   CSV Files (batch)        │
-          └─────────────┬──────────────┘
-                        │
-                        ▼
-          ┌────────────────────────────┐
-          │        ETL Layer           │
-          │                            │
-          │  - Data Cleaning           │
-          │  - Validation              │
-          │  - Fraud Detection         │
-          └─────────────┬──────────────┘
-                        │
-        ┌───────────────┴───────────────┐
-        ▼                               ▼
-┌───────────────────┐         ┌───────────────────┐
-│ Processed Data    │         │ Suspicious Data   │
-│ (clean data)      │         │ (fraud alerts)    │
-└─────────┬─────────┘         └─────────┬─────────┘
-          │                             │
-          └───────────────┬─────────────┘
-                          ▼
-              ┌────────────────────────┐
-              │   Data Warehouse       │
-              │     PostgreSQL         │
-              │                        │
-              │  Fact + Dimensions     │
-              └────────────────────────┘
--Imagen en la raiz del proyecto:
+-Imagen en la raiz del proyecto:arquitectura.png
 
 ## Instalación
 1. Clonar repositorio
